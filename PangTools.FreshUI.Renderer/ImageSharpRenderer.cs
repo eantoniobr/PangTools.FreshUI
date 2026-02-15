@@ -74,40 +74,58 @@ public class ImageSharpRenderer
 
     private void RenderItems(ref IImageProcessingContext ctx, List<Item> items, string buttonState)
     {
+        Color debugColor = Color.Transparent;
+        
         foreach (Item item in items)
         {
             switch (item.Type)
             {
                 case "AREA":
-                    ctx.DrawArea(item, _fileAtlas, _debug);
+                    ctx.DrawArea(item, _fileAtlas);
+                    debugColor = Color.Blue;
                     break;
                 case "BUTTON":
                     ctx.DrawButton(item, buttonState, _fileAtlas);
+                    debugColor = Color.Green;
                     break;
                 case "FRAME":
                     ctx.DrawItemFrame(item, _fileAtlas, _frameInfoAtlas);
+                    debugColor = Color.Red;
                     break;
                 case "STATIC":
                     ctx.DrawStatic(item);
+                    debugColor = Color.Pink;
                     break;
                 case "GROUPBOX":
                     if (item.Items?.Count > 0)
                     {
                         RenderItems(ref ctx, item.Items, buttonState);    
                     }
+                    debugColor = Color.BlueViolet;
                     break;
                 case "EDIT":
                 case "COMBOBOX":
                 case "LISTBOX":
                     ctx.DrawInput(item);
+                    debugColor = Color.Coral;
                     break;
                 case "GAUGEBAR":
                 case "GAUGEBAREX":
                     ctx.DrawGaugebar(item);
+                    debugColor = Color.SlateGray;
                     break;
                 case "VIEWER":
-                    ctx.DrawViewer(item, _fileAtlas, _debug);
+                    ctx.DrawViewer(item, _fileAtlas);
+                    debugColor = Color.Purple;
                     break;
+            }
+            
+            if (_debug)
+            {
+                ctx.DrawDebugHint(item, debugColor, _fileAtlas);
+                
+                // Reset debug color to be transparent for non-supported elements
+                debugColor = Color.Transparent;
             }
         }
     }

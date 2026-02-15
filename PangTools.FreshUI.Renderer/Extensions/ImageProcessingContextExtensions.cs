@@ -11,17 +11,11 @@ namespace PangTools.FreshUI.Renderer.Extensions;
 
 public static class ImageProcessingContextExtensions
 {
-    public static IImageProcessingContext DrawElementFrame(this IImageProcessingContext ctx, Element element, FileAtlas fileAtlas, FrameInfoAtlas frameInfoAtlas,
-        bool drawOutline = false)
+    public static IImageProcessingContext DrawElementFrame(this IImageProcessingContext ctx, Element element, FileAtlas fileAtlas, FrameInfoAtlas frameInfoAtlas)
     {
         Size? size = DimensionHelper.ParseSize(element.Size);
 
         ctx.DrawFrame(element.Resource, new Rectangle(0, 0, size.Value.Width, size.Value.Height), fileAtlas, frameInfoAtlas);
-        
-        if (drawOutline)
-        {
-            ctx.Draw(Color.Red, 1f, new RectangleF(0, 0, size.Value.Width, size.Value.Height));
-        }
 
         return ctx;
     }
@@ -40,7 +34,7 @@ public static class ImageProcessingContextExtensions
         return ctx;
     }
     
-    public static IImageProcessingContext DrawArea(this IImageProcessingContext ctx, Item areaItem, FileAtlas fileAtlas, bool drawOutline = false)
+    public static IImageProcessingContext DrawArea(this IImageProcessingContext ctx, Item areaItem, FileAtlas fileAtlas)
     {
         RectangleF? areaItemRect = DimensionHelper.ParseRectangle(areaItem.Rectangle);
 
@@ -77,11 +71,6 @@ public static class ImageProcessingContextExtensions
                 
                 ctx.DrawImage(bgTexture, new Point((int)areaItemRect.Value.X, (int)areaItemRect.Value.Y), 1f); 
             }
-        }
-
-        if (drawOutline)
-        {
-            ctx.Draw(Color.LightBlue, 1f, (RectangleF)areaItemRect);
         }
         
         return ctx;
@@ -398,9 +387,72 @@ public static class ImageProcessingContextExtensions
             ctx.DrawImage(image, new Point((int)viewerRect.Value.X, (int)viewerRect.Value.Y), 1f);
         }
 
-        if (drawOutline)
+        return ctx;
+    }
+
+    public static IImageProcessingContext DrawDebugHint(this IImageProcessingContext ctx, Item item, Color color, FileAtlas fileAtlas)
+    {
+        if (color == Color.Transparent)
         {
-            ctx.Draw(Color.Purple, 1f, (RectangleF)viewerRect);
+            return ctx;
+        }
+        
+        RectangleF? bounds = null;
+        
+        if (item.Rectangle != null)
+        {
+            bounds = DimensionHelper.ParseRectangle(item.Rectangle);
+        }
+
+        if (item.Position != null)
+        {
+            int[] pos = DimensionHelper.TextToIntArray(item.Position);
+
+            Parameter? bgParam = item.GetParameter("bgimg");
+            Parameter? normalParam = item.GetParameter("normal");
+            Rectangle? texBounds = null;
+
+            if (bgParam != null && bgParam.Value.Length > 0)
+            {
+                Image? bgTexture = fileAtlas.GetImage($"{bgParam.Value}.");
+
+                if (bgTexture != null)
+                {
+                    texBounds = bgTexture.Bounds;    
+                }
+            }
+            
+
+            if (normalParam != null && normalParam.Value.Length > 0)
+            {
+                Image? normalTexture = fileAtlas.GetImage($"{normalParam.Value}.");
+
+                if (normalTexture != null)
+                {
+                    texBounds = normalTexture.Bounds;    
+                }
+            }
+
+            if (texBounds != null)
+            {
+                bounds = new RectangleF(pos[0], pos[1], texBounds.Value.Width, texBounds.Value.Height);    
+            }
+        }
+
+        if (bounds != null)
+        {
+            ctx.Draw(color, 1f, (RectangleF)bounds);
+
+            if (item.Name != null && item.Name.Length > 0)
+            {
+                FontFamily arialFontFamily = SystemFonts.Get("Arial");
+                Font arial = arialFontFamily.CreateFont(12f, FontStyle.Regular);
+
+                FontRectangle fontRectangle = TextMeasurer.MeasureBounds(item.Name, new TextOptions(arial));
+
+                ctx.Fill(color, new RectangleF(bounds.Value.X, bounds.Value.Y, fontRectangle.Width, fontRectangle.Height));
+                ctx.DrawText(item.Name, arial, Color.White, new PointF(bounds.Value.X, bounds.Value.Y));    
+            }
         }
 
         return ctx;
