@@ -128,6 +128,10 @@ public class ImageSharpRenderer
                     ctx.DrawButton(item, "normal", _fileAtlas);
                     debugColor = Color.DarkSlateGray;
                     break;
+                case "TEXTBUTTON":
+                    ctx.DrawTextButton(item);
+                    debugColor = Color.MediumSeaGreen;
+                    break;
                 case "VIEWER":
                     ctx.DrawViewer(item, _fileAtlas);
                     debugColor = Color.Purple;

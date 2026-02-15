@@ -292,6 +292,49 @@ public static class ImageProcessingContextExtensions
 
         return ctx;
     }
+    
+    public static IImageProcessingContext DrawTextButton(this IImageProcessingContext ctx, Item textButtonItem)
+    {
+        RectangleF? textRect = DimensionHelper.ParseRectangle(textButtonItem.Rectangle);
+
+        if (textRect != null && textButtonItem.Caption != null)
+        {
+            Parameter? colorParam = textButtonItem.GetParameter("color");
+            Color textColor;
+            HorizontalAlignment horizontalAlignment;
+            
+            if (colorParam != null)
+            {
+                string staticColor = ColorHelper.ARGBtoRBGA(colorParam.Value);
+                textColor = Color.Parse(staticColor);
+            }
+            else
+            {
+                textColor = Color.Black;
+            }
+            
+            // TODO: Either pick a font closely referencing Pangya's UI
+            //       Or add support for laoding in WFT font files
+            FontFamily arialFontFamily = SystemFonts.Get("Malgun Gothic");
+            Font arial = arialFontFamily.CreateFont(14f, FontStyle.Regular);
+            
+            ctx.DrawText(
+                new DrawingOptions()
+                {
+                    Transform = Matrix3x2.CreateTranslation(textRect.Value.X, textRect.Value.Y)
+                },
+                new RichTextOptions(arial)
+                {
+                    HorizontalAlignment = HorizontalAlignment.Left
+                },
+                textButtonItem.Caption, 
+                Brushes.Solid(textColor),
+                null
+            );
+        }
+
+        return ctx;
+    }
 
     public static IImageProcessingContext DrawBase(this IImageProcessingContext ctx, Base baseElement, FileAtlas fileAtlas)
     {
