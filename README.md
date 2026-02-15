@@ -14,7 +14,7 @@ is called "Refresh" (very obviously in files and class names).
 `PangTools.FreshUI.Serialization` contains models and utilities to serialize
 the XML format into usable data structures.
 
-### `PangTools.FreshUI.Renderer`
+### [`PangTools.FreshUI.Renderer`](./PangTools.FreshUI.Renderer)
 
 `PangTools.FreshUI.Renderer` contains rendering methods to render the different
 UI elements into an `ImageSharp` canvas. Most methods are provided as extension
