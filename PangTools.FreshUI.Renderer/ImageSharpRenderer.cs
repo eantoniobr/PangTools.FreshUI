@@ -120,6 +120,14 @@ public class ImageSharpRenderer
                     ctx.DrawGaugebar(item);
                     debugColor = Color.SlateGray;
                     break;
+                case "GAUGEBARIMAGE":
+                    // NOTE: Reusing button rendering here as just a
+                    //       "normal" parameter image is rendered here.
+                    //
+                    // TODO: Add own method, support overlay masking
+                    ctx.DrawButton(item, "normal", _fileAtlas);
+                    debugColor = Color.DarkSlateGray;
+                    break;
                 case "VIEWER":
                     ctx.DrawViewer(item, _fileAtlas);
                     debugColor = Color.Purple;
