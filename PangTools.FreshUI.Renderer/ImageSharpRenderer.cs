@@ -132,6 +132,12 @@ public class ImageSharpRenderer
                     // So they just exist in debug output
                     debugColor = Color.Magenta;
                     break;
+                case "TABBUTTON":
+                    // Tab Buttons only define hover/selected states
+                    // So in default renderings they aren't even visible
+                    // TODO: Add rendering support for the other states
+                    debugColor = Color.DarkOrange;
+                    break;
                 case "TEXTBUTTON":
                     ctx.DrawTextButton(item);
                     debugColor = Color.MediumSeaGreen;
