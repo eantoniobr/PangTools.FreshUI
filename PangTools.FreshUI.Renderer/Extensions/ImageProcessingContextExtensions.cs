@@ -409,7 +409,7 @@ public static class ImageProcessingContextExtensions
         return ctx;
     }
 
-    public static IImageProcessingContext DrawViewer(this IImageProcessingContext ctx, Item viewerItem, FileAtlas fileAtlas, bool drawOutline = false)
+    public static IImageProcessingContext DrawViewer(this IImageProcessingContext ctx, Item viewerItem, FileAtlas fileAtlas)
     {
         RectangleF? viewerRect = DimensionHelper.ParseRectangle(viewerItem.Rectangle);
         Image? bgImage = fileAtlas.GetImage(viewerItem.GetParameter("bgimg")?.Value);
