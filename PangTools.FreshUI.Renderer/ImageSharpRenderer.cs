@@ -88,6 +88,12 @@ public class ImageSharpRenderer
                     ctx.DrawButton(item, buttonState, _fileAtlas);
                     debugColor = Color.Green;
                     break;
+                case "COMBOCTLEX":
+                    // NOTE: Reusing button rendering here because it's effectively
+                    //       a fancy button in viewing perspective anyway.
+                    ctx.DrawButton(item, buttonState, _fileAtlas);
+                    debugColor = Color.SpringGreen;
+                    break;
                 case "FRAME":
                     ctx.DrawItemFrame(item, _fileAtlas, _frameInfoAtlas);
                     debugColor = Color.Red;
