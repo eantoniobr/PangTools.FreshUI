@@ -111,7 +111,6 @@ public class ImageSharpRenderer
                     break;
                 case "EDIT":
                 case "COMBOBOX":
-                case "LISTBOX":
                     ctx.DrawInput(item);
                     debugColor = Color.Coral;
                     break;
@@ -127,6 +126,11 @@ public class ImageSharpRenderer
                     // TODO: Add own method, support overlay masking
                     ctx.DrawButton(item, "normal", _fileAtlas);
                     debugColor = Color.DarkSlateGray;
+                    break;
+                case "LISTBOX":
+                    // Listboxes don't tell us what they render
+                    // So they just exist in debug output
+                    debugColor = Color.Magenta;
                     break;
                 case "TEXTBUTTON":
                     ctx.DrawTextButton(item);
