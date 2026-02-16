@@ -1,4 +1,4 @@
-﻿namespace PangTools.FreshUI.Renderer.Extensions;
+﻿namespace Saeroun.Renderer.Extensions;
 
 public static class StringExtensions
 {

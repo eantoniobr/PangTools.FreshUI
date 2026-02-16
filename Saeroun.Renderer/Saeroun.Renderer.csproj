@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\PangTools.FreshUI.Serialization\PangTools.FreshUI.Serialization.csproj" />
+      <ProjectReference Include="..\Saeroun.Serialization\Saeroun.Serialization.csproj" />
     </ItemGroup>
 
     <ItemGroup>

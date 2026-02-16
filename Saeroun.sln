@@ -1,10 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PangTools.FreshUI.Serialization", "PangTools.FreshUI.Serialization\PangTools.FreshUI.Serialization.csproj", "{A1A1CFEC-639F-4128-A8AC-0034C4F2E6AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saeroun.Serialization", "Saeroun.Serialization\Saeroun.Serialization.csproj", "{A1A1CFEC-639F-4128-A8AC-0034C4F2E6AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PangTools.FreshUI.CLI", "PangTools.FreshUI.CLI\PangTools.FreshUI.CLI.csproj", "{C336C841-A279-483C-BF61-663DB962E637}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saeroun.CLI", "Saeroun.CLI\Saeroun.CLI.csproj", "{C336C841-A279-483C-BF61-663DB962E637}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PangTools.FreshUI.Renderer", "PangTools.FreshUI.Renderer\PangTools.FreshUI.Renderer.csproj", "{FA89196A-B754-4E43-91D9-6D291DB47A2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saeroun.Renderer", "Saeroun.Renderer\Saeroun.Renderer.csproj", "{FA89196A-B754-4E43-91D9-6D291DB47A2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

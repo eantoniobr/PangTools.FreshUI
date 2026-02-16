@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace PangTools.FreshUI.Serialization.Models;
+namespace Saeroun.Serialization.Models;
 
 public class Parameter
 {

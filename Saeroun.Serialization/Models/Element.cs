@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace PangTools.FreshUI.Serialization.Models;
+namespace Saeroun.Serialization.Models;
 
 public class Element
 {
@@ -16,21 +16,21 @@ public class Element
     [XmlAttribute("resource")]
     public string? Resource;
     
-    [XmlElementAttribute("item")]
+    [XmlElement("item")]
     public List<Item>? Items;
     
-    [XmlElementAttribute("layer")]
+    [XmlElement("layer")]
     public List<Layer>? Layers;
     
-    [XmlElementAttribute("bfrm")]
+    [XmlElement("bfrm")]
     public Frame? BorderFrame;
     
-    [XmlElementAttribute("sfrm")]
+    [XmlElement("sfrm")]
     public Frame? SquareFrame;
     
-    [XmlElementAttribute("cfrm")]
+    [XmlElement("cfrm")]
     public Frame? ClearFrame;
 
-    [XmlElementAttribute("base")] 
+    [XmlElement("base")] 
     public Base? Base;
 }

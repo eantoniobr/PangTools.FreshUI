@@ -15,8 +15,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\PangTools.FreshUI.Renderer\PangTools.FreshUI.Renderer.csproj" />
-      <ProjectReference Include="..\PangTools.FreshUI.Serialization\PangTools.FreshUI.Serialization.csproj" />
+      <ProjectReference Include="..\Saeroun.Renderer\Saeroun.Renderer.csproj" />
+      <ProjectReference Include="..\Saeroun.Serialization\Saeroun.Serialization.csproj" />
     </ItemGroup>
 
 </Project>

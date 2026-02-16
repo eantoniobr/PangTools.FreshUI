@@ -1,7 +1,7 @@
-﻿using PangTools.FreshUI.Renderer.Extensions;
+﻿using Saeroun.Renderer.Extensions;
 using SixLabors.ImageSharp;
 
-namespace PangTools.FreshUI.Renderer;
+namespace Saeroun.Renderer;
 
 public class FileAtlas
 {

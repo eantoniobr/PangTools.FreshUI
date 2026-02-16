@@ -1,4 +1,4 @@
-﻿namespace PangTools.FreshUI.Serialization.Models;
+﻿namespace Saeroun.Serialization.Models;
 
 using System.Xml.Serialization;
 
@@ -8,6 +8,6 @@ public class Resource
     [XmlAttribute("count")]
     public int Count;
 
-    [XmlElementAttribute("element")]
+    [XmlElement("element")]
     public List<Element> Elements;
 }

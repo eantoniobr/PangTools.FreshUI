@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace PangTools.FreshUI.Serialization.Models;
+namespace Saeroun.Serialization.Models;
 
 public class Item
 {
@@ -25,7 +25,7 @@ public class Item
     [XmlAttribute("rect")]
     public string? Rectangle;
 
-    [XmlElementAttribute("param")]
+    [XmlElement("param")]
     public List<Parameter>? Parameters;
     
     public Parameter? GetParameter(string parameterName)
@@ -33,6 +33,6 @@ public class Item
         return Parameters.FirstOrDefault(p => p.Name.Equals(parameterName));
     }
     
-    [XmlElementAttribute("item")]
+    [XmlElement("item")]
     public List<Item>? Items;
 }

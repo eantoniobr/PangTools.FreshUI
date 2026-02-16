@@ -1,7 +1,7 @@
-﻿using PangTools.FreshUI.Serialization.DTO;
-using PangTools.FreshUI.Serialization.Models;
+﻿using Saeroun.Serialization.DTO;
+using Saeroun.Serialization.Models;
 
-namespace PangTools.FreshUI.Serialization.Factories;
+namespace Saeroun.Serialization.Factories;
 
 public static class FrameInfoFactory
 {

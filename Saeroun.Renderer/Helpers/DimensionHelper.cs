@@ -1,6 +1,6 @@
 ﻿using SixLabors.ImageSharp;
 
-namespace PangTools.FreshUI.Renderer.Helpers;
+namespace Saeroun.Renderer.Helpers;
 
 public class DimensionHelper
 {
