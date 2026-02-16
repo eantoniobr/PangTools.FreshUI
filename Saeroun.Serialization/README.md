@@ -1,4 +1,4 @@
-﻿# PangTools.FreshUI.Serialization
+﻿# Saeroun.Serialization
 
 This library contains models/factories to serialize Pangya's UI XML
 into proper data structures.
@@ -22,7 +22,7 @@ $ dotnet package add System.Text.Encoding.CodePages
 
 ```csharp
 using System.Xml.Serialization;
-using PangTools.FreshUI.Serialization.Models;
+using Saeroun.Serialization.Models;
 
 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 

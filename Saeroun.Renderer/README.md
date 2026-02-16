@@ -1,4 +1,4 @@
-﻿# PangTools.FreshUI.Renderer
+﻿# Saeroun.Renderer
 
 This library contains the renderer code to render Fresh UI
 elements using ImageSharp.
@@ -7,10 +7,10 @@ elements using ImageSharp.
 
 ```csharp
 using System.Xml.Serialization;
-using PangTools.FreshUI.Renderer;
-using PangTools.FreshUI.Serialization.DTO;
-using PangTools.FreshUI.Serialization.Factories;
-using PangTools.FreshUI.Serialization.Models;
+using Saeroun.Renderer;
+using Saeroun.Serialization.DTO;
+using Saeroun.Serialization.Factories;
+using Saeroun.Serialization.Models;
 using SixLabors.ImageSharp;
 
 // Build a FileAtlas for the unpacked Pangya data/ folder

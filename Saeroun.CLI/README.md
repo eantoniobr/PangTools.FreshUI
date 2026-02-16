@@ -1,4 +1,4 @@
-﻿# PangTools.FreshUI.CLI
+﻿# Saeroun.CLI
 
 This application is a CLI designed to quickly allow rendering Pangya XML UI
 definitions to PNG images.
@@ -6,12 +6,12 @@ definitions to PNG images.
 ## Usage
 
 ```shell
-$ .\PangTools.FreshUI.CLI.exe --help                                                                    
+$ .\Saeroun.CLI.exe --help                                                                    
 Description:
   Preview Pangya UI files
 
 Usage:
-  PangTools.FreshUI.CLI [options]
+  Saeroun.CLI [options]
 
 Options:
   --data-directory <data-directory>  The Pangya 'data' asset directory path
